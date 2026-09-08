@@ -9,7 +9,7 @@ export default function EventGrid({ events }) {
           title={event.title}
           category={event.category}
           description={event.description}
-          image={event.image}
+          image={event.image || "/events/general.png"}
           mode={event.mode}
           href={event.href}
         />
