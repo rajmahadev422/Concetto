@@ -17,13 +17,14 @@ export default function Card({ member }) {
       {/* ================= TEAM CARD ================= */}
       <article className="group overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/60">
 
-        {/* Photo */}
-        <div className="relative aspect-[4/3] overflow-hidden">
+        {/* ================= PHOTO ================= */}
+        <div className="relative aspect-[4/3] overflow-hidden bg-[var(--surface)]">
           <Image
             src={member.image || "/team/default.jpg"}
             alt={member.name || "Team Member"}
             fill
-            className="object-cover transition duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain object-center transition duration-500 group-hover:scale-105"
           />
 
           {/* View Profile */}
@@ -35,7 +36,7 @@ export default function Card({ member }) {
           </button>
         </div>
 
-        {/* Basic Info */}
+        {/* ================= BASIC INFO ================= */}
         <div className="bg-[var(--surface)] p-5">
           <h3 className="text-base font-bold text-[var(--foreground)]">
             {member.name || "—"}
@@ -53,7 +54,7 @@ export default function Card({ member }) {
             className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-2xl md:flex-row"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ================= CLOSE ================= */}
+            {/* ================= CLOSE BUTTON ================= */}
             <button
               onClick={() => setShowProfile(false)}
               aria-label="Close profile"
@@ -63,12 +64,13 @@ export default function Card({ member }) {
             </button>
 
             {/* ================= LEFT : PHOTO ================= */}
-            <div className="relative h-64 w-full shrink-0 md:h-auto md:min-h-[520px] md:w-1/2">
+            <div className="relative h-64 w-full shrink-0 bg-[var(--surface)] md:h-auto md:min-h-[520px] md:w-1/2">
               <Image
                 src={member.image || "/team/default.jpg"}
                 alt={member.name || "Team Member"}
                 fill
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain object-center"
               />
             </div>
 
@@ -77,7 +79,6 @@ export default function Card({ member }) {
 
               {/* ================= HEADER ================= */}
               <div className="px-7 pb-5 pt-10 md:px-8 md:pt-12">
-
                 <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
                   Team Member
                 </p>
@@ -86,13 +87,12 @@ export default function Card({ member }) {
                   {member.name || "—"}
                 </h2>
 
-                {/* Role only */}
                 <p className="mt-3 text-sm font-semibold text-[var(--primary)]">
                   {member.role || "—"}
                 </p>
               </div>
 
-              {/* Divider */}
+              {/* ================= DIVIDER ================= */}
               <div className="mx-7 h-px bg-[var(--border)] md:mx-8" />
 
               {/* ================= CONTACT DETAILS ================= */}
@@ -115,7 +115,6 @@ export default function Card({ member }) {
                     hover:to-transparent
                   "
                 >
-                  {/* Icon */}
                   <div
                     className="
                       flex h-11 w-11 shrink-0 items-center justify-center
@@ -158,7 +157,6 @@ export default function Card({ member }) {
                     hover:to-transparent
                   "
                 >
-                  {/* Icon */}
                   <div
                     className="
                       flex h-11 w-11 shrink-0 items-center justify-center
@@ -187,17 +185,13 @@ export default function Card({ member }) {
 
               {/* ================= CONNECT ================= */}
               <div className="mt-auto border-t border-[var(--border)] px-7 py-5 md:px-8">
-
                 <p className="mb-3 text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
                   Connect
                 </p>
 
                 <div className="flex items-center gap-3">
 
-                  {/* =====================================================
-                      LINKEDIN
-                      Button ALWAYS visible
-                  ====================================================== */}
+                  {/* ================= LINKEDIN ================= */}
                   {member.linkedin ? (
                     <a
                       href={member.linkedin}
@@ -220,7 +214,6 @@ export default function Card({ member }) {
                         hover:shadow-[0_0_16px_var(--primary)]
                       "
                     >
-                      {/* Gradient */}
                       <span
                         className="
                           pointer-events-none
@@ -235,7 +228,6 @@ export default function Card({ member }) {
                         "
                       />
 
-                      {/* Shine */}
                       <span
                         className="
                           pointer-events-none
@@ -277,7 +269,6 @@ export default function Card({ member }) {
                         hover:shadow-[0_0_16px_var(--primary)]
                       "
                     >
-                      {/* Gradient */}
                       <span
                         className="
                           pointer-events-none
@@ -292,7 +283,6 @@ export default function Card({ member }) {
                         "
                       />
 
-                      {/* Shine */}
                       <span
                         className="
                           pointer-events-none
@@ -316,10 +306,7 @@ export default function Card({ member }) {
                     </button>
                   )}
 
-                  {/* =====================================================
-                      INSTAGRAM
-                      Button ALWAYS visible
-                  ====================================================== */}
+                  {/* ================= INSTAGRAM ================= */}
                   {member.instagram ? (
                     <a
                       href={member.instagram}
@@ -342,7 +329,6 @@ export default function Card({ member }) {
                         hover:shadow-[0_0_16px_var(--primary)]
                       "
                     >
-                      {/* Gradient */}
                       <span
                         className="
                           pointer-events-none
@@ -357,7 +343,6 @@ export default function Card({ member }) {
                         "
                       />
 
-                      {/* Shine */}
                       <span
                         className="
                           pointer-events-none
@@ -399,7 +384,6 @@ export default function Card({ member }) {
                         hover:shadow-[0_0_16px_var(--primary)]
                       "
                     >
-                      {/* Gradient */}
                       <span
                         className="
                           pointer-events-none
@@ -414,7 +398,6 @@ export default function Card({ member }) {
                         "
                       />
 
-                      {/* Shine */}
                       <span
                         className="
                           pointer-events-none
